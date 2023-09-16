@@ -111,7 +111,7 @@ function select_from_table() {
                     echo $line 
                     row_found=true 
                 fi 
-           	done < <(tail -n +2 "$DATABASES_DIRECTORY/$dbname/$table_name.csv")
+            done < <(tail -n +2 "$DATABASES_DIRECTORY/$dbname/$table_name.csv")
 
             # Check if any rows were found.
             if [ "$row_found" = false ]; then 
