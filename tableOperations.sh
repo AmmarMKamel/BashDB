@@ -34,12 +34,18 @@ function create_table() {
 		# Prompt user for column names and data types
 		columns=""
 		primary_key=""
+		declare -A column_names
 		for ((i = 1; i <= num_columns; i++)); do
 			while true; do
 				read -p "Enter column $i name: " column_name
 
 				if [[ $column_name =~ ^[a-zA-Z][a-zA-Z0-9_]*$ ]]; then
-                    break
+                    if [ ${column_names[$column_name]+_} ]; then 
+						echo "Column '$column_name' already exists. Please enter a unique name."
+					else 
+						column_names["$column_name"]=1  # Add column name to the map.
+						break 
+					fi
                 else
                     echo "Invalid column name. Column names should be alphanumeric and start with a letter."
                 fi
