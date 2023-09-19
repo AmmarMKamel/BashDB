@@ -223,8 +223,12 @@ function update_table() {
                                 else 
                                     echo "Invalid value. Please enter an integer."
                                 fi 
-                            elif [ $data_type = "string" ]; then 
-                                break 
+                            elif [ $data_type = "string" ]; then
+                                if [[ $new_value =~ ^[a-zA-Z]*$ ]]; then
+                                    break
+                                else
+                                    echo "Invalid value. Please enter alphabetic characters only."
+                                fi
                             fi 
                         done 
 

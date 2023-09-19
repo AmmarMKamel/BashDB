@@ -53,10 +53,10 @@ function insert_into_table() {
 					if [ -z "$value" ]; then
 						echo "Invalid value. Please enter a non-empty string."
 					else
-						if [[ $value =~ ^[a-zA-Z0-9_]*$ ]]; then
+						if [[ $value =~ ^[a-zA-Z]*$ ]]; then
 							break
 						else
-							echo "Invalid Value. Please enter alphanumeric characters only."
+							echo "Invalid Value. Please enter alphabetic characters only."
 						fi
 					fi
 				fi
