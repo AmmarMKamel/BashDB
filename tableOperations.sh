@@ -25,7 +25,11 @@ function create_table() {
             read -p "Enter the number of columns to add: " num_columns
 
             if [[ $num_columns =~ ^[0-9]+$ ]]; then
-                break
+                if [ $num_columns -ne 0 ]; then
+                    break
+                else
+                    echo "Invalid input. Number of columns cannot be zero."
+                fi
             else
                 echo "Invalid input. Please enter a positive integer."
             fi
